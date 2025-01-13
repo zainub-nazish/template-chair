@@ -1,17 +1,29 @@
 "use client"
- import { IoIosSearch, IoIosArrowDown,} from "react-icons/io";
+import { IoIosArrowDown, } from "react-icons/io";
 import { RiAccountBoxFill } from "react-icons/ri";
 import { FaRegHeart } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import Link from "next/link";
+import { IoMdMenu } from "react-icons/io";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+
 
 const Header = () => {
-    
 
-    return (
-        <header className="bg-[#7E33E0] text-white">
-            {/* Top Header */}
-            <div className="flex flex-wrap justify-between items-center px-4 md:px-8 py-2 text-sm">
+
+  return (
+    <header className="bg-[#7E33E0] text-white">
+      {/* Top Header */}
+      <div className="flex flex-wrap justify-between items-center px-4 md:px-8 py-2 text-sm">
         {/* Left Section */}
         <div className="flex items-center space-x-4">
           <span className="flex items-center space-x-2">
@@ -53,66 +65,100 @@ const Header = () => {
         </div>
       </div>
 
-  
 
-            {/* /==================================================================== */}
 
-            {/* Lower Header */}
-            <div className="bg-white text-black">
-                <div className="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
-                    {/* Logo */}
-                    <h1 className="text-xl font-bold">Hekto</h1>
+      {/* /==================================================================== */}
 
-                    {/* Navigation Menu */}
-                    <ul className="hidden md:flex space-x-6">
-                        <li>
-                            <Link href="#" className="hover:text-purple-600">
-                                Home
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="../pp" className="hover:text-purple-600">
-                                Pages
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="../latest" className="hover:text-purple-600">
-                                Products
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="../blog" className="hover:text-purple-600">
-                                Blog
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="../shoplist" className="hover:text-purple-600">
-                                Shop
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="../contact" className="hover:text-purple-600">
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
+      {/* Lower Header */}
+      <div className="bg-white text-black">
+        <div className="container mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+          {/* Logo */}
+          <h1 className="text-xl font-bold">Hekto</h1>
 
-                    {/* Search Bar */}
-                    <div className="flex items-center space-x-2">
-                        <input
-                            type="text"
-                            placeholder="Search"
-                            className="border rounded-l-md px-3 py-1 focus:outline-none"
-                        />
-                        <button className="bg-pink-500 text-white px-4 py-1 rounded-r-md hover:bg-pink-600">
-                            <IoIosSearch />
-                        </button>
-                    </div>
-                </div>
-            </div>
+          {/* Navigation Menu */}
+          <ul className="hidden md:flex space-x-6">
+            <li>
+              <Link href="#" className="hover:text-purple-600">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="../pp" className="hover:text-purple-600">
+                Pages
+              </Link>
+            </li>
+            <li>
+              <Link href="../latest" className="hover:text-purple-600">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="../blog" className="hover:text-purple-600">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="../shoplist" className="hover:text-purple-600">
+                Shop
+              </Link>
+            </li>
+            <li>
+              <Link href="../contact" className="hover:text-purple-600">
+                Contact
+              </Link>
+            </li>
+          </ul>
 
-        </header>
-    );
+
+          <div>
+
+
+            {/*   menu bar */}
+            <DropdownMenu>
+              <DropdownMenuTrigger> <IoMdMenu /> </DropdownMenuTrigger>
+              <DropdownMenuContent>
+
+                <DropdownMenuSeparator />
+                <DropdownMenuItem> <ul><li>
+                  <Link href="#" className="hover:text-purple-600">
+                    Home
+                  </Link>
+                </li> </ul> </DropdownMenuItem>
+                <DropdownMenuItem><ul> <li>
+                  <Link href="../pp" className="hover:text-purple-600">
+                    Pages
+                  </Link>
+                </li> </ul>  </DropdownMenuItem>
+                <DropdownMenuItem><ul> <li>
+                  <Link href="../latest" className="hover:text-purple-600">
+                    Products
+                  </Link>
+                </li> </ul></DropdownMenuItem>
+                <DropdownMenuItem> <ul> <li>
+                  <Link href="../blog" className="hover:text-purple-600">
+                    Blog
+                  </Link>
+                </li> </ul></DropdownMenuItem>
+                <DropdownMenuItem><ul> <li>
+                  <Link href="../shoplist" className="hover:text-purple-600">
+                    Shop
+                  </Link>
+                </li> </ul></DropdownMenuItem>
+                <DropdownMenuItem><ul> <li>
+                  <Link href="../contact" className="hover:text-purple-600">
+                    Contact
+                  </Link>
+                </li> </ul></DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+
+          </div>
+        </div>
+      </div>
+
+    </header>
+  );
 };
 
 export default Header;
